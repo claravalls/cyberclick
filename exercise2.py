@@ -1,6 +1,7 @@
 # Code that checks the number of passwords in a file that comply the specified policy
 # Each line has the following structure:
-#          <min_times>-<max_times> <letter>: <password>
+#   POLICY 1   =   <min_times>-<max_times> <letter>: <password>
+#   POLICY 2   =   <position1>-<position2> <letter>: <password>
 
 import sys
 import policy
@@ -18,7 +19,7 @@ def main(args):
     correct_counter = 0
 
     if len(args) < 2:
-        print("Missing input file argument")
+        print("Missing arguments")
         return 1
 
     input_file = args[0]
@@ -37,7 +38,6 @@ def main(args):
             rules = policy.Policy(int(min), int(max), target[0], password)
 
             # check if the password complies with the policy
-
             if rules.check_password(policy_type):
                 correct_counter += 1
 

@@ -3,8 +3,8 @@ class Policy:
         """
         Constructor class
 
-        :param min_times: minimum number of times the letter has to appear
-        :param max_times: maximum numner of times the letter has to appear
+        :param first_num: minimum number of times the letter has to appear or position of the target letter
+        :param second_num: maximum numner of times the letter has to appear or position of the target letter
         :param target: letter to check in the password
         :param password: password to check
         """
@@ -32,4 +32,5 @@ class Policy:
             return counter in times
 
         else:
+            # check if the letter appears in the position1 specified or in the position2, but not in both
             return (self.password[self.first_num - 1] == self.target) != (self.password[self.second_num - 1] == self.target)
