@@ -3,34 +3,7 @@
 #          <min_times>-<max_times> <letter>: <password>
 
 import sys
-
-
-class Policy:
-    def __init__(self, min_times, max_times, target, password):
-        """
-        Constructor class
-
-        :param min_times: minimum number of times the letter has to appear
-        :param max_times: maximum numner of times the letter has to appear
-        :param target: letter to check in the password
-        :param password: password to check
-        """
-        # add 1 value to max_times to include it in range
-        self.times = range(min_times, max_times + 1)
-        self.target = target
-        self.password = password
-
-    def check_password(self):
-        """
-        Check if the password follows the specified policy
-        """
-        counter = 0
-        for letter in self.password:
-            if letter == self.target:
-                counter += 1
-
-        # check if the target letter appears the specified number of times
-        return counter in self.times
+import policy
 
 
 def main(args):
@@ -56,10 +29,10 @@ def main(args):
             [min, max] = max_min.split("-")
 
             # create a policy with the line info
-            policy = Policy(int(min), int(max), target[0], password)
+            rules = policy.Policy(int(min), int(max), target[0], password)
 
             # check if the password complies with the policy
-            if policy.check_password():
+            if rules.check_password_1():
                 correct_counter += 1
 
     print("{} correct passwords.".format(correct_counter))
