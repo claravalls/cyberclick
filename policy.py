@@ -4,7 +4,7 @@ class Policy:
         Constructor class
 
         :param first_num: minimum number of times the letter has to appear or position of the target letter
-        :param second_num: maximum numner of times the letter has to appear or position of the target letter
+        :param second_num: maximum number of times the letter has to appear or position of the target letter
         :param target: letter to check in the password
         :param password: password to check
         """
@@ -17,7 +17,7 @@ class Policy:
         """
         Check if the password follows the specified policy
 
-        Aruments
+        Arguments
         :param policy: policy type (1 or 2) to apply
         """
         counter = 0
